@@ -219,6 +219,37 @@ func (_Erc721 *Erc721CallerSession) BalanceOf(owner common.Address) (*big.Int, e
 	return _Erc721.Contract.BalanceOf(&_Erc721.CallOpts, owner)
 }
 
+//TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
+//
+//Solidity: function totalSupply() constant returns(uint256)
+func (_Erc721 *Erc721Caller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _Erc721.contract.Call(opts, &out, "totalSupply")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+//TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
+//
+//Solidity: function totalSupply() constant returns(uint256)
+func (_Erc721 *Erc721Session) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
+	return _Erc721.Contract.TotalSupply(&_Erc721.CallOpts)
+}
+
+//TotalSupply is a free data retrieval call binding the Contract method 0x18160ddd.
+//
+//Solidity: function totalSupply() constant returns(uint256)
+func (_Erc721 *Erc721CallerSession) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
+	return _Erc721.Contract.TotalSupply(&_Erc721.CallOpts)
+}
+
 // GetApproved is a free data retrieval call binding the contract method 0x081812fc.
 //
 // Solidity: function getApproved(uint256 tokenId) view returns(address)
